@@ -40,6 +40,7 @@ SerialCommandInterface class is also used for OI.
 """
 __author__ = "damonkohler@gmail.com (Damon Kohler)"
 
+
 import logging
 import math
 import serial
