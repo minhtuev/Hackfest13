@@ -46,7 +46,8 @@ class ClientMotion(object):
 		elif c == 'right':
 			self.robot.TurnInPlace(self.defaultSpeed, 'cw')
 		elif c == 'reset':
-			self.robot.SoftReset()
+			self.robot = pyrobot.Create("/dev/ttyUSB0")
+			self.robot.Control()
 		elif c == 'm':
 			self.robot.Sing('C2')
 		elif c == 'n':
