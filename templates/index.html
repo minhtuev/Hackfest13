@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
 {% extends "base.html" %}
 
 {% block subtitle %}- Log In{% endblock %}
@@ -7,10 +10,33 @@
 
 {% block content %}
 
-<h2 id="signupmain"> Roomba as a Service.
-</h2>
-<form method="post">
-	<button id="landingbttn" type="button submit">Login</button>
-</form>
+<script>
+$(function() {
+    $('input[name=text]').bind("enterKey", function(e){
+        e.preventDefault();
+        var message = $(this).val();
+        alert("Welcome " + message);
+        $('input[name=text]').text("test");
+        $('#status').text("green");
+        // Then send a message to a server
+        window.location.replace("/control");
+    });
+    $('input[name=text]').focus();
+    $('input[name=text]').keyup(function(e){
+    	if(e.keyCode == 13)
+    	{
+    		$(this).trigger("enterKey");
+    	}
+    });
+
+});
+</script>
+
+<h2 id="signupmain"> Roomba as a Service. </h2>
+
+
+Name:  <input type="text" name="text" />
+
+Status: <span id="status">red</span>
 
 {% endblock %}
