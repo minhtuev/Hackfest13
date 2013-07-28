@@ -17,7 +17,7 @@ class ClientMotion(object):
 		# mac: tty.KeySerial1
 		# roombda: /dev/ttyUSB0 
 
-		self.robot = pyrobot.Create("/dev/ttyUSB0")
+		self.robot = pyrobot.Create("/dev/tty.KeySerial1")
 		self.robot.Control()
 		self.defaultSpeed = 100
 		self.currentSpeed = self.defaultSpeed
