@@ -5,13 +5,11 @@ import json
 import settings
 import os
 
-
 port = 2000
 app = Flask(__name__)
 app.secret_key = settings.SECRET_KEY
 
-
-
+# our main page
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	isAvailable = "red"
@@ -38,6 +36,7 @@ def index():
 		{"name": "Kayle", "status": "darkred"}]
 	return render_template('index.html', robots=robots, isAvailable=isAvailable)
 
+# our control page
 @app.route('/control', methods=['GET', 'POST'])
 def control():
 	if request.method == 'POST':
