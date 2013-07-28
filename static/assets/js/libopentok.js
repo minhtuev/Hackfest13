@@ -51,7 +51,7 @@ window.opentok = {
         for (var i = 0; i < streams.length; i++) {
           var stream = streams[i];
           if (stream.connection.connectionId != event.target.connection.connectionId) {
-            self.session.subscribe(stream, getStreamDiv(stream), { width: 500, height: 500 } );
+            self.session.subscribe(stream, getStreamDiv(stream), { width: 500, height: 400 } );
           }
         }
       }
