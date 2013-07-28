@@ -3,7 +3,7 @@ import socket
 import sys, os
 
 
-HOST = 'localhost'    # The remote host
+HOST = '172.16.240.41'    # The remote host
 PORT = 3000              # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
