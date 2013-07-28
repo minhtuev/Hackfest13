@@ -6,7 +6,7 @@ import flask
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(24)
 app.debug = True
-host,port='localhost',8000
+host,port='172.16.241.70',8000
  
 @app.route('/')
 def index():
