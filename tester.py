@@ -12,7 +12,7 @@ fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
 
 
 
-robot = pyrobot.Create("/dev/tty.USA19H142P1.1")
+robot = pyrobot.Create("/dev/ttyUSB0")
 
 robot.Control()
 
@@ -33,7 +33,7 @@ class ClientMotion(object):
 	previousState
 
 	def __init__(self):
-		self.robot = pyrobot.Create("/dev/tty.USA19H142P1.1")
+		self.robot = pyrobot.Create("/dev/ttyUSB0")
 		self.robot.Control()
 		self.defaultSpeed = 100
 		self.currentSpeed = defaultSpeed

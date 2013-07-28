@@ -1,7 +1,7 @@
 # Echo server program
 import socket, tester
 
-HOST = '172.16.240.41'                 # Symbolic name meaning all available interfaces
+HOST = '172.16.241.71'    # Symbolic name meaning all available interfaces
 PORT = 3000              # Arbitrary non-privileged port
 motion = tester.ClientMotion()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
