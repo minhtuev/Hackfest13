@@ -1,3 +1,6 @@
+/*
+*** Commenting out this code, since we should be reading js file from static folder ***
+
 window.opentok = {
     session: null,
     params: null,
@@ -86,3 +89,4 @@ window.opentok = {
       
     }
   }
+  */

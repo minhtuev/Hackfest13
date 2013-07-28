@@ -13,16 +13,20 @@ app.secret_key = settings.SECRET_KEY
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	isAvailable = "red"
+	# open file, read in the user state from the file
 	stuff = open("session", "rb").read()
 
+	# if empty file, then robot is available
 	if(stuff == ""):
 		isAvailable = "green"
 
 	if request.method == 'POST':
-
+		# if we are trying to write to the file & the file is available
+		# then write it
 		if open("session", "rb").read() == "":
 			random = os.urandom(10)
 			session['access_token'] = random
+			# write the token to the file
 			f = open("session", "w")
 			f.write(random)
 			f.close()
@@ -48,6 +52,11 @@ def control():
 
 		return redirect(url_for('index', _external=True))
 	return render_template('control.html', port=port)
+
+# this should be the url when we leave
+@app.route('/leave', methods=['GET'])
+def leave():
+	return 'left'
 
 if __name__ == '__main__':
 	app.run(debug=True)
