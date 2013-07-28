@@ -45,8 +45,8 @@ $(function() {
 		ws.send(JSON.stringify({'output': 'stop'}));
 		break;
 		case reset_key:
-		$("#currentKey").text("stop");
-		ws.send(JSON.stringify({'output': 'stop'}));
+		$("#currentKey").text("reset");
+		ws.send(JSON.stringify({'output': 'reset'}));
 		break;
 		
 	}});
