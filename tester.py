@@ -1,37 +1,26 @@
-import pyrobot
-import termios, fcntl, sys, os
-fd = sys.stdin.fileno()
+import pyrobot, termios, fcntl, sys, os
 
-oldterm = termios.tcgetattr(fd)
-newattr = termios.tcgetattr(fd)
-newattr[3] = newattr[3] & ~termios.ICANON & ~termios.ECHO
-termios.tcsetattr(fd, termios.TCSANOW, newattr)
-
-oldflags = fcntl.fcntl(fd, fcntl.F_GETFL)
-fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
-
-robot = pyrobot.Create("/dev/ttyUSB0")
-
-robot.Control()
-
-defaultSpeed = 100
-currentSpeed = defaultSpeed
-ratioChange = 1.5
-previousState = 'z'
 
 class ClientMotion(object):
 
-	robot
-	defaultSpeed
-	currentSpeed
-	ratioChange 
-	previousState
-
 	def __init__(self):
+
+		fd = sys.stdin.fileno()
+
+		newattr = termios.tcgetattr(fd)
+		newattr[3] = newattr[3] & ~termios.ICANON & ~termios.ECHO
+		termios.tcsetattr(fd, termios.TCSANOW, newattr)
+
+		oldflags = fcntl.fcntl(fd, fcntl.F_GETFL)
+		fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
+
+		# mac: tty.KeySerial1
+		# roombda: /dev/ttyUSB0 
+
 		self.robot = pyrobot.Create("/dev/ttyUSB0")
 		self.robot.Control()
 		self.defaultSpeed = 100
-		self.currentSpeed = defaultSpeed
+		self.currentSpeed = self.defaultSpeed
 		self.ratioChange = 1.5
 		self.previousState = 'z'
 
