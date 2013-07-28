@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, url_for, redirect, session, f
 import json
 import settings
 import os
+import android_app_request
 
 app = Flask(__name__)
 app.secret_key = settings.SECRET_KEY
@@ -28,6 +29,10 @@ def index():
 			# write the token to the file
 			with open("session", "w") as f:
 				f.write(random)
+
+			# starting the android app
+			android_app_request.start()
+
 			return redirect(url_for('control', _external=True))
 		else:
 			return redirect(url_for('index', _external=True)) 
@@ -54,6 +59,9 @@ def leave():
 	# clearing the server file
 	with open("session", "w") as f:
 		f.write("")
+	
+	# stopping the android app
+	android_app_request.stop()
 
 	return redirect(url_for('index', _external=True))
 

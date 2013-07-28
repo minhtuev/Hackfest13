@@ -24,8 +24,10 @@ $(function() {
     
     window.onbeforeunload = function() {
         ws.onclose = function () {};
-        ws.close()
+        ws.close();
+        $("#leave").click();
     };
+
 
     $(document).keydown(function(event){
 	switch (event.keyCode) {
