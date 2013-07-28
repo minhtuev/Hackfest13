@@ -7,7 +7,7 @@ import os
 import android_app_request
 
 app = Flask(__name__)
-app.secret_key = settings.SECRET_KEY
+app.secret_key = '\x1d\x08\x19\xf311\xc0\xfc\xb0\xe2[sz\xf1\x85\x8eB\x00\xd0x\xcc\xe4\xfc\x97'
 
 # our main page
 @app.route('/', methods=['GET', 'POST'])

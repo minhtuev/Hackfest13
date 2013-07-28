@@ -5,7 +5,7 @@ try:
     # OAuth2 client ID and secret
     # CLIENT_ID = env['CLIENT_ID']
     # CLIENT_SECRET = env['CLIENT_SECRET']
-    SECRET_KEY = env['SECRET_KEY']
+    # SECRET_KEY = env['SECRET_KEY']
     pass
 
 except KeyError:
