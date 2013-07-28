@@ -24,7 +24,7 @@ $(function() {
     
     window.onbeforeunload = function() {
         ws.onclose = function () {};
-        ws.close();
+       	ws.close();
         leave_page();
     };
 
@@ -60,6 +60,7 @@ $(function() {
 
 function leave_page()
 {
+	//alert('leaving now');
 	self.location='/leave';
 }
 
