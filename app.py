@@ -43,20 +43,27 @@ def index():
 # our control page
 @app.route('/control', methods=['GET', 'POST'])
 def control():
-	if request.method == 'POST':
-		#session.pop('access_token', None)
-		session['access_token'] = None
-		f = open("session", "w")
-		f.write("")
-		f.close()
+	# if request.method == 'POST':
+	# 	#session.pop('access_token', None)
+	# 	session['access_token'] = None
+	# 	f = open("session", "w")
+	# 	f.write("")
+	# 	f.close()
 
-		return redirect(url_for('index', _external=True))
+	# 	return redirect(url_for('index', _external=True))
 	return render_template('control.html', port=port)
 
 # this should be the url when we leave
 @app.route('/leave', methods=['GET'])
 def leave():
-	return 'left'
+	# clearing the cookie
+	session['access_token'] = None
+	# clearing the server file
+	f = open("session", "w")
+	f.write("")
+	f.close()
+
+	return redirect(url_for('index', _external=True))
 
 if __name__ == '__main__':
 	app.run(debug=True)
