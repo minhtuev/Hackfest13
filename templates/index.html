@@ -1,7 +1,5 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-
 {% extends "base.html" %}
+
 
 {% block subtitle %}- Log In{% endblock %}
 
@@ -10,33 +8,17 @@
 
 {% block content %}
 
-<script>
-$(function() {
-    $('input[name=text]').bind("enterKey", function(e){
-        e.preventDefault();
-        var message = $(this).val();
-        alert("Welcome " + message);
-        $('input[name=text]').text("test");
-        $('#status').text("green");
-        // Then send a message to a server
-        window.location.replace("/control");
-    });
-    $('input[name=text]').focus();
-    $('input[name=text]').keyup(function(e){
-    	if(e.keyCode == 13)
-    	{
-    		$(this).trigger("enterKey");
-    	}
-    });
-
-});
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <h2 id="signupmain"> Roomba as a Service. </h2>
 
-
-Name:  <input type="text" name="text" />
-
-Status: <span id="status">red</span>
+<ul>
+{% for robot in robots %}
+    <form method="post">
+    {{robot.name}} <button type="text" name="text" {{"disabled" if robot.status=="red"}}>Choose</button>,
+    Status: <span id="status">{{robot.status}}</span>
+    </form>
+{% endfor %}
+</ul>
 
 {% endblock %}

@@ -50,10 +50,6 @@ $(function() {
 		break;
 		
 	}});
-
-	 $("#leave").click(function(){
-        window.location.replace("/");
-    });
 });
 
 </script>
@@ -91,5 +87,5 @@ Current Control: <span id="currentKey"> </span>
 Server says: <p id="log"></p>
 
 
-When you are done, press <button id="leave">Leave</button>
+When you are done, press <form method="post"><button id="leave" method="post">Leave</button></form>
 {% endblock %}
