@@ -15,8 +15,7 @@
 <ul>
 {% for robot in robots %}
     <form method="post">
-    {{robot.name}} <button type="text" name="text" {{"disabled" if robot.status=="red"}}>Choose</button>,
-    Status: <span id="status">{{robot.status}}</span>
+    <button type="text" name="text" {{"disabled" if robot.status=="darkred"}} style={{"background-color:"+robot.status}}>{{robot.name}}</button>
     </form>
 {% endfor %}
 </ul>
