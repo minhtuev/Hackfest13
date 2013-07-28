@@ -26,9 +26,8 @@ def index():
 			random = os.urandom(10)
 			session['access_token'] = random
 			# write the token to the file
-			f = open("session", "w")
-			f.write(random)
-			f.close()
+			with open("session", "w") as f:
+				f.write(random)
 			return redirect(url_for('control', _external=True))
 		else:
 			return redirect(url_for('index', _external=True)) 
@@ -52,11 +51,10 @@ def control():
 @app.route('/leave', methods=['GET'])
 def leave():
 	# clearing the cookie
-	session['access_token'] = None
+	session.pop('access_token', None)
 	# clearing the server file
-	f = open("session", "w")
-	f.write("")
-	f.close()
+	with open("session", "w") as f:
+		f.write("")
 
 	return redirect(url_for('index', _external=True))
 
