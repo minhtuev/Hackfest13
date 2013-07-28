@@ -1,20 +1,24 @@
 # Echo server program
 import socket, tester
 
-HOST = '172.16.241.71'    # Symbolic name meaning all available interfaces
+HOST = '172.16.241.70'    # Symbolic name meaning all available interfaces
 PORT = 3000              # Arbitrary non-privileged port
 motion = tester.ClientMotion()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
-s.listen(1)
-conn, addr = s.accept()
-print 'Connected by', addr
+
 while 1:
-    data = conn.recv(1024)
-    motion.move(data)
-    if data == "p":
-    	break
-    if not data: 
-    	break
-    conn.sendall(data)
-conn.close()
+	s.listen(1)
+	conn, addr = s.accept()
+	while 1:
+		data = conn.recv(1024)
+
+		if data == "quit":
+			motion.flush()
+			conn.close()
+			print "closed socket"
+			break
+		else:
+			motion.move(data)
+
+

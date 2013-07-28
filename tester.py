@@ -10,14 +10,9 @@ termios.tcsetattr(fd, termios.TCSANOW, newattr)
 oldflags = fcntl.fcntl(fd, fcntl.F_GETFL)
 fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
 
-
-
 robot = pyrobot.Create("/dev/ttyUSB0")
 
 robot.Control()
-
-# robot.DriveStraight(100)
-# robot.SlowStop(5)
 
 defaultSpeed = 100
 currentSpeed = defaultSpeed
@@ -67,3 +62,8 @@ class ClientMotion(object):
 	    	self.robot.DriveStraight(0)
 
 	   	self.previousState = c
+
+
+	def flush(self):
+		termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
+		fcntl.fcntl(fd, fcntl.F_SETFL, oldflags)
