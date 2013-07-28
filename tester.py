@@ -26,31 +26,33 @@ class ClientMotion(object):
 
 
 	def move(self, command):
-	    c = command
-	    if c == 'w':
-	    	if self.previousState == 'w':
-	    		self.currentSpeed = self.currentSpeed * self.ratioChange
-	    	else:
-	    		self.currentSpeed = self.defaultSpeed
-	    	self.robot.DriveStraight(self.currentSpeed)
-	    elif c == 'a':
-	    	self.robot.TurnInPlace(self.defaultSpeed, 'ccw')
-	    elif c == 's':
-	    	if self.previousState == 's':
-	    		self.currentSpeed = self.currentSpeed * self.ratioChange
-	    	else:
-	    		self.currentSpeed = self.defaultSpeed
-	    	self.robot.DriveStraight(-self.currentSpeed)
-	    elif c == 'd':
-	    	self.robot.TurnInPlace(self.defaultSpeed, 'cw')
-	    elif c == 'm':
-	    	self.robot.Sing('C2')
-	    elif c == 'n':
-	    	self.robot.Sing('C#2')
-	    elif c == 'z':
-	    	self.robot.DriveStraight(0)
+		print command
+		c = command
+		if c == 'up':
+			print command
+			if self.previousState == 'up':
+				self.currentSpeed = self.currentSpeed * self.ratioChange
+			else:
+				self.currentSpeed = self.defaultSpeed
+			self.robot.DriveStraight(self.currentSpeed)
+		elif c == 'left':
+			self.robot.TurnInPlace(self.defaultSpeed, 'ccw')
+		elif c == 'down':
+			if self.previousState == 'down':
+				self.currentSpeed = self.currentSpeed * self.ratioChange
+			else:
+				self.currentSpeed = self.defaultSpeed
+			self.robot.DriveStraight(-self.currentSpeed)
+		elif c == 'right':
+			self.robot.TurnInPlace(self.defaultSpeed, 'cw')
+		elif c == 'm':
+			self.robot.Sing('C2')
+		elif c == 'n':
+			self.robot.Sing('C#2')
+		elif c == 'stop':
+			self.robot.DriveStraight(0)
 
-	   	self.previousState = c
+			self.previousState = c
 
 
 	def flush(self):
