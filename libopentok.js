@@ -1,3 +1,6 @@
+/*
+*** Commenting out this code, since we should be reading js file from static folder ***
+
 window.opentok = {
     session: null,
     params: null,
@@ -45,6 +48,7 @@ window.opentok = {
       this.token = 'T1==cGFydG5lcl9pZD0zNjUyNDg5MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz00YTY4N2MwZmYxMjQ5MmMxZDk3NWUwYmYwZTY0MmM5ZTJhMGQzYTliOnJvbGU9cHVibGlzaGVyJnNlc3Npb25faWQ9Ml9NWDR6TmpVeU5EZzVNbjR4TWpjdU1DNHdMakYtVTNWdUlFcDFiQ0F5T0NBd01qb3dNRG94TWlCUVJGUWdNakF4TTM0d0xqUTBOelF6TmpkLSZjcmVhdGVfdGltZT0xMzc1MDAyMTQyJm5vbmNlPTAuNDEzMzc5MzA1ODI3MzgzMzYmZXhwaXJlX3RpbWU9MTM3NzU5NDE0MiZjb25uZWN0aW9uX2RhdGE9';
       this.session = TB.initSession(self.session_id);
 
+      // this adds on the new window from the phone
       var subscribeToStreams = function(event) {
         var streams = event.streams;
         
@@ -67,6 +71,7 @@ window.opentok = {
         return name;
       }
       
+      // our video stream to the other side
       var sessionConnectedHandler = function(event) {
         var publisher = TB.initPublisher(self.apikey, 'video_chat_self');
         subscribeToStreams(event);
@@ -84,3 +89,4 @@ window.opentok = {
       
     }
   }
+  */
