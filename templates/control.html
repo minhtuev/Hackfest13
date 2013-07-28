@@ -7,12 +7,13 @@
         ws = new WebSocket("ws://" + document.domain + ":{{port}}/websocket");
         ws.onmessage = function (msg) {
             var message = JSON.parse(msg.data);
-            $("p#log").html(message.output );
+            $("p#log").html(message.output);
         };
     };
     $('input[name=text]').on('keyup', function(e){
         e.preventDefault();
         var message = $(this).val();
+        console.log(message);
         ws.send(JSON.stringify({'output': message}));
     });
     $('input[name=text]').focus();
