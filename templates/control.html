@@ -7,6 +7,7 @@ up_key = 87;
 down_key = 83;
 left_key = 65;
 right_key = 68;
+stop_key = 90;
 
 $(function() {
     if ("WebSocket" in window) {
@@ -25,25 +26,23 @@ $(function() {
 		case left_key:
 		$("#currentKey").text("left");
 		ws.send(JSON.stringify({'output': 'left'}));
-		//left();
 		break;
 		case up_key:
 		$("#currentKey").text("up");
 		ws.send(JSON.stringify({'output': 'up'}));
-		//up();
 		break;
 		case right_key:
 		$("#currentKey").text("right");
 		ws.send(JSON.stringify({'output': 'right'}));
-		//right();
 		break;
 		case down_key:
 		$("#currentKey").text("down");
 		ws.send(JSON.stringify({'output': 'down'}));
-		//down();
 		break;
-		case 38:
-		break;
+		case stop_key:
+		$("#currentKey").text("stop");
+		ws.send(JSON.stringify({'output': 'stop'}));
+		
 	}});
 });
 
@@ -75,7 +74,7 @@ textarea:focus, input:focus{
 <h2 id="signupmain"> Roomba as a Service.
 </h2>
 
-<h3> WASD </h3>
+<h3> WASD (Z to stop)</h3>
 
 Current Control: <span id="currentKey"> </span>
 <br>
