@@ -5,7 +5,6 @@ import json
 import settings
 import os
 
-port = 2000
 app = Flask(__name__)
 app.secret_key = settings.SECRET_KEY
 
@@ -43,15 +42,11 @@ def index():
 # our control page
 @app.route('/control', methods=['GET', 'POST'])
 def control():
-	# if request.method == 'POST':
-	# 	#session.pop('access_token', None)
-	# 	session['access_token'] = None
-	# 	f = open("session", "w")
-	# 	f.write("")
-	# 	f.close()
-
 	# 	return redirect(url_for('index', _external=True))
-	return render_template('control.html', port=port)
+	if open("session", "rb").read() == session['access_token']:
+		return render_template('control.html')
+
+	return redirect(url_for('index', _external=True)) 
 
 # this should be the url when we leave
 @app.route('/leave', methods=['GET'])
