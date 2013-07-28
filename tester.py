@@ -45,6 +45,8 @@ class ClientMotion(object):
 			self.robot.DriveStraight(-self.currentSpeed)
 		elif c == 'right':
 			self.robot.TurnInPlace(self.defaultSpeed, 'cw')
+		elif c == 'reset':
+			self.robot.SoftReset()
 		elif c == 'm':
 			self.robot.Sing('C2')
 		elif c == 'n':

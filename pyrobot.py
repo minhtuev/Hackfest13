@@ -485,8 +485,8 @@ class Roomba(object):
     """Start the robot's SCI interface and place it in safe mode."""
     self.Passive()
     self.sci.control()  # Also puts the Roomba in to safe mode.
-    #if not self.safe:
-    #  self.sci.full()
+    if not self.safe:
+      self.sci.full()
     time.sleep(0.5)
 
   def Drive(self, velocity, radius):
