@@ -13,7 +13,7 @@ app.secret_key = settings.SECRET_KEY
 def index():
 	isAvailable = "red"
 	# open file, read in the user state from the file
-	stuff = open("session", "rb").read()
+	stuff = open("session", "wb+").read()
 
 	# if empty file, then robot is available
 	if(stuff == ""):
