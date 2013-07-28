@@ -25,7 +25,7 @@ $(function() {
     window.onbeforeunload = function() {
         ws.onclose = function () {};
         ws.close();
-        $("#leave").click();
+        leave_page();
     };
 
 
@@ -57,6 +57,11 @@ $(function() {
 			break;	
 	}});
 });
+
+function leave_page()
+{
+	self.location='/leave';
+}
 
 </script>
 
@@ -102,6 +107,6 @@ Current Control: <span id="currentKey"> </span>
 
 Server says: <p id="log"></p>
 
-When you are done, press <button id="leave" onClick="self.location='/leave'">Leave</button>
+When you are done, press <button id="leave" onClick="leave_page()">Leave</button>
 
 {% endblock %}
