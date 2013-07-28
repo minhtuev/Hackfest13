@@ -1,19 +1,13 @@
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-
-
-<script src="http://static.opentok.com/v1.1/js/TB.min.js" ></script>
-<script src="/static/assets/js/libopentok.js"></script>
 
 <script>
 
 // case 'wasd':
-up_key = 87; 	//w
-left_key = 65; 	//a
-down_key = 83; 	//s
+up_key = 87;  //w
+left_key = 65;  //a
+down_key = 83;  //s
 right_key = 68; //d
-stop_key = 90; 	//z
+stop_key = 90;  //z
 reset_key = 82; //r
 
 $(function() {
@@ -29,33 +23,33 @@ $(function() {
         ws.close()
     };
     $(document).keydown(function(event){
-	switch (event.keyCode) {
-		case left_key:
-		$("#currentKey").text("left");
-		ws.send(JSON.stringify({'output': 'left'}));
-		break;
-		case up_key:
-		$("#currentKey").text("up");
-		ws.send(JSON.stringify({'output': 'up'}));
-		break;
-		case right_key:
-		$("#currentKey").text("right");
-		ws.send(JSON.stringify({'output': 'right'}));
-		break;
-		case down_key:
-		$("#currentKey").text("down");
-		ws.send(JSON.stringify({'output': 'down'}));
-		break;
-		case stop_key:
-		$("#currentKey").text("stop");
-		ws.send(JSON.stringify({'output': 'stop'}));
-		break;
-		case reset_key:
-		$("#currentKey").text("reset");
-		ws.send(JSON.stringify({'output': 'reset'}));
-		break;
-		
-	}});
+  switch (event.keyCode) {
+    case left_key:
+    $("#currentKey").text("left");
+    ws.send(JSON.stringify({'output': 'left'}));
+    break;
+    case up_key:
+    $("#currentKey").text("up");
+    ws.send(JSON.stringify({'output': 'up'}));
+    break;
+    case right_key:
+    $("#currentKey").text("right");
+    ws.send(JSON.stringify({'output': 'right'}));
+    break;
+    case down_key:
+    $("#currentKey").text("down");
+    ws.send(JSON.stringify({'output': 'down'}));
+    break;
+    case stop_key:
+    $("#currentKey").text("stop");
+    ws.send(JSON.stringify({'output': 'stop'}));
+    break;
+    case reset_key:
+    $("#currentKey").text("reset");
+    ws.send(JSON.stringify({'output': 'reset'}));
+    break;
+
+  }});
 });
 
 </script>
@@ -82,23 +76,16 @@ textarea:focus, input:focus{
 {% endblock %}
 
 {% block content %}
-<script>
-  window.opentok.init();
-</script>
 
+<h2 id="signupmain"> Roomba as a Service.
+</h2>
 
-<h2 id="signupmain"> Roomba as a Service.</h2>
-<div id="video_chat_container">
-  <div id="video_chat_self"></div>
-</div>
-
-
-<h4>To Control, press WASD (Z to stop)</h4>
-
+<h3>To Control, press WASD (Z to stop)</h3>
 
 Current Control: <span id="currentKey"> </span>
 <br>
 Server says: <p id="log"></p>
+
 
 When you are done, press <form method="post"><button id="leave" method="post">Leave</button></form>
 {% endblock %}
