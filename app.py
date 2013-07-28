@@ -41,8 +41,7 @@ def index():
 # our control page
 @app.route('/control', methods=['GET', 'POST'])
 def control():
-	# 	return redirect(url_for('index', _external=True))
-	if open("session", "rb").read() == session['access_token']:
+	if (open("session", "rb").read() != '') and (open("session", "rb").read() == session['access_token']):
 		return render_template('control.html')
 
 	return redirect(url_for('index', _external=True)) 
