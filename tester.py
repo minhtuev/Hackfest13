@@ -44,6 +44,10 @@ try:
             	robot.DriveStraight(-currentSpeed)
             elif c == 'd':
             	robot.TurnInPlace(defaultSpeed, 'cw')
+            elif c == 'm':
+            	robot.Sing('C2')
+            elif c == 'n':
+            	robot.Sing('C#2')
             elif c == 'z':
             	robot.DriveStraight(0)
 

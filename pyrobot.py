@@ -269,6 +269,7 @@ class SerialCommandInterface(object):
     if name in self.opcodes:
       def SendOpcode(*bytes):
         logging.debug('Sending opcode %s.' % name)
+        print 'Sending opcode %s.' % name
         self.Send([self.opcodes[name]] + list(bytes))
       return SendOpcode
     raise AttributeError
@@ -552,6 +553,10 @@ class Roomba(object):
     time.sleep(0.5)
     self.sci.force_seeking_dock()
 
+  def Sing(self, note):
+    """Start singing"""
+    if note in MIDI_TABLE.keys():
+      self.sci.play(MIDI_TABLE[note])
 
 class CreateSensors(RoombaSensors):
 
