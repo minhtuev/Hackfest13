@@ -1,0 +1,5 @@
+04:46:37,962 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+04:46:38,151 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+04:46:38,378 (main) INFO  [DataNucleus.Enhancer] - Writing class file "/Users/emad/eclipse/opentok-android-sdk-demo/opentok-android-sdk-demo-AppEngine/target/opentok-android-sdk-demo-AppEngine-1.0/WEB-INF/classes/com/opentok/android/demo/DeviceInfo.class" with enhanced definition
+04:46:38,384 (main) INFO  [DataNucleus.Enhancer] - Writing class file "/Users/emad/eclipse/opentok-android-sdk-demo/opentok-android-sdk-demo-AppEngine/target/opentok-android-sdk-demo-AppEngine-1.0/WEB-INF/classes/com/opentok/android/demo/MessageData.class" with enhanced definition
+04:46:38,385 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=182 ms, enhance=50 ms, total=232 ms. Consult the log for full details
