@@ -15,7 +15,7 @@ reset_key = 82; //r
 
 $(function() {
     if ("WebSocket" in window) {
-        ws = new WebSocket("ws://localhost:8000/websocket");
+        ws = new WebSocket("ws://172.16.241.70:8000/websocket");
         ws.onmessage = function (msg) {
             var message = JSON.parse(msg.data);
             $("p#log").html(message.output);
